@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Skin Cancer Detection - Jack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='menu/font/Rimouski.css') }}"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="static/articles/css/normalize.css"
+  />
+
+  <link
+rel="stylesheet"
+type="text/css"
+href="static/articles/css/component.css"
+/>
+
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="static/articles/css/demo.css"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='articles/weather/font/Rimouski.css') }}"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='articles/weather/style.css') }}"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='menu/menu.css') }}"
+/>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script src="static/articles/js/snap.svg-min.js"></script>
+  </head>
+
+  <body>
+
+      <div id="menu-container">
+          <nav>
+              <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="./articles">Prevention</a></li>
+                  <li><a href="./contact">Get Checked</a></li>
+              </ul>
+          </nav>
+        </div>
+
+
+      <section id="grid" class="grid clearfix">
+        <a
+          href="https://www.skincancer.org/skin-cancer-information/"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-1.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Skin Caner 101</h2>
+              <p>What is skin cancer?</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://www.mayoclinic.org/diseases-conditions/skin-cancer/symptoms-causes/syc-20377605"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-2.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Types & Causes</h2>
+              <p>Types of skin cancers and their causes</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-5.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Sun Safety</h2>
+              <p>How to protect yourself in different levels of sun exposure</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://www.rogelcancercenter.org/skin-cancer/melanoma/prevention/self-screening-card"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-4.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>ABCDs</h2>
+              <p>Self-screening for skin cancer</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-3.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>7-Point Checklist</h2>
+              <p>A checklist for diagnosing melanoma.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://www.health.harvard.edu/blog/sun-protection-appropriate-sunscreen-use-2018062114114"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-6.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Approriate Sunscreen Use</h2>
+              <p>Which SPF Strenght?</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://www.skincancer.org/skin-cancer-information/skin-cancer-facts/"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-7.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Facts & Stats</h2>
+              <p>Facts and statistics on skin cancer</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="https://www.nhs.uk/conditions/non-melanoma-skin-cancer/"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="static/articles/img/medic-8.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Treatment</h2>
+              <p>Treating skin cancer</p>
+            </figcaption>
+          </figure>
+        </a>
+      </section>
+
+      <script>
+        (function() {
+          function init() {
+            var speed = 330,
+              easing = mina.backout;
+
+            [].slice
+              .call(document.querySelectorAll("#grid > a"))
+              .forEach(function(el) {
+                var s = Snap(el.querySelector("svg")),
+                  path = s.select("path"),
+                  pathConfig = {
+                    from: path.attr("d"),
+                    to: el.getAttribute("data-path-hover")
+                  };
+
+                el.addEventListener("mouseenter", function() {
+                  path.animate({ path: pathConfig.to }, speed, easing);
+                });
+
+                el.addEventListener("mouseleave", function() {
+                  path.animate({ path: pathConfig.from }, speed, easing);
+                });
+              });
+          }
+
+          init();
+        })();
+      </script>
+    </label>
+  </body>
+
+  <footer></footer>
+</html>

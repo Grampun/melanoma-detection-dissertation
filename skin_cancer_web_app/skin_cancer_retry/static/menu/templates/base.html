@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Skin Cancer Detection - Jack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='menu/font/Rimouski.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='menu/menu.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='main.css') }}"
+    />
+  </head>
+
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+
+  <footer>
+    <script src="{{ url_for('static',filename='main.js') }}"></script>
+  </footer>
+</html>

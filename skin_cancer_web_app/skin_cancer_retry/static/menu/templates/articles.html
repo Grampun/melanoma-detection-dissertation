@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Skin Cancer Detection - Jack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='main.css') }}"
+    />
+
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static',filename='articles/css/normalize.css') }}"
+  />
+
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='articles/css/articles/css/demo.css') }}"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='articles/weather/font/Rimouski.css') }}"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='articles/weather/style.css') }}"
+/>
+
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static',filename='menu/menu.css') }}"
+/>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="articles/css/component.css" />
+    <script src="articles/js/snap.svg-min.js"></script>
+  </head>
+
+  <body>
+
+      <div id="menu-container">
+          <nav>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="./articles.html">Skin Cancer Prevention</a></li>
+                  <li><a href="./contact.html">Contact</a></li>
+              </ul>
+          </nav>
+        </div>
+
+          <!--
+        WEATHER SECTION -->
+
+      <div class="container">
+          <div class="app-title">
+            <p>Weather</p>
+          </div>
+          <div class="notification"></div>
+          <div class="weather-container">
+            <div class="weather-icon">
+              <img src="icons/unknown.png" alt="" />
+            </div>
+            <div class="temperature-value">
+              <p>- °<span>C</span></p>
+            </div>
+            <div class="uv-index">
+              <p></p>
+            </div>
+            <div class="temperature-description">
+              <p>-</p>
+            </div>
+            <div class="location">
+              <p>-</p>
+            </div>
+
+            <div class="uv-tip">
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <script src="weather/app.js"></script>
+
+      <section id="grid" class="grid clearfix">
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-1.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Crystalline</h2>
+              <p>Soko radicchio bunya nuts gram dulse.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-2.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Cacophony</h2>
+              <p>Two greens tigernut soybean radish artichoke.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-5.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Languid</h2>
+              <p>Beetroot water spinach okra water chestnut.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-4.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Serene</h2>
+              <p>Water spinach arugula pea tatsoi.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-3.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Nebulous</h2>
+              <p>Pea horseradish azuki bean lettuce.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-6.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Iridescent</h2>
+              <p>A grape silver beet watercress potato.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-7.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Resonant</h2>
+              <p>Chickweed okra pea winter purslane.</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a
+          href="#"
+          data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z"
+        >
+          <figure>
+            <img src="img/medic-8.jpg" />
+            <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+              <path
+                d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"
+              />
+            </svg>
+            <figcaption>
+              <h2>Zenith</h2>
+              <p>Salsify taro catsear garlic gram.</p>
+            </figcaption>
+          </figure>
+        </a>
+      </section>
+
+      <script>
+        (function() {
+          function init() {
+            var speed = 330,
+              easing = mina.backout;
+
+            [].slice
+              .call(document.querySelectorAll("#grid > a"))
+              .forEach(function(el) {
+                var s = Snap(el.querySelector("svg")),
+                  path = s.select("path"),
+                  pathConfig = {
+                    from: path.attr("d"),
+                    to: el.getAttribute("data-path-hover")
+                  };
+
+                el.addEventListener("mouseenter", function() {
+                  path.animate({ path: pathConfig.to }, speed, easing);
+                });
+
+                el.addEventListener("mouseleave", function() {
+                  path.animate({ path: pathConfig.from }, speed, easing);
+                });
+              });
+          }
+
+          init();
+        })();
+      </script>
+    </label>
+  </body>
+
+  <footer></footer>
+</html>

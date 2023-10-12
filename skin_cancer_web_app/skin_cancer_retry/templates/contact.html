@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Skin Cancer Detection - Jack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='menu/font/Rimouski.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./css/contact-styles.css" /> -->
+
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='contact/Places-Map-master/css/contact-styles.css') }}"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='articles/weather/font/Rimouski.css') }}"
+    />
+
+    <link rel="stylesheet" type="text/css" href="static/menu/menu.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='main.css') }}"
+    />
+
+</head>
+
+  <body>
+    <div id="menu-container">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="./articles">Prevention</a></li>
+          <li><a href="./contact">Get Checked</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <body class="container-fluid">
+
+        <div class="row">
+          <div class="col-12 header-row">
+            <h2 class="text-center text-uppercase pt-4 pb-1">Dermatologists Near You</h2>
+            <p id="item-count" class="pl-2 text-center"></p>
+          </div>
+          <div class="col-2 p-0 side-menu">
+          </div>
+          <div class="col-10 my-menu p-0">
+            <div id="map"></div>
+          </div>
+        </div>
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #map {
+          height: 100% !important;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      </style>
+
+      <script>
+        window.onload = function() {
+          var latitude;
+          var longitude;
+          var map;
+          var infowindow;
+          var markers = [];
+          var countDisplay = document.getElementById('item-count');
+
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+            swal("Loading Map!", "Please hold while we retrive nearby dermatologists", {
+              buttons: [false],
+            });
+          } else {
+            alert("Geolocation is not supported by this browser.")
+          }
+
+          function success(position) {
+            latitude = position.coords.latitude;
+            longitude =  position.coords.longitude;
+            swal.close();
+            initMap(latitude, longitude)
+          }
+
+          function error() {
+              alert("Unable to retrieve your location");
+          }
+          // Initialize and add the map
+          function initMap(latitude, longitude) {
+            // The location of Uluru
+            var currentLocation = {lat: latitude, lng: longitude};
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: currentLocation,
+              zoom: 14,
+              labelAnchor: new google.maps.Point(20, 0),
+              styles: [
+                {
+                  "featureType": "all",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                      "hue": "#ffc700"
+                    },
+                    {
+                      "saturation": "59"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "administrative",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "saturation": "-100"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "administrative.province",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "landscape",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "saturation": -100
+                    },
+                    {
+                      "lightness": 65
+                    },
+                    {
+                      "visibility": "on"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "saturation": -100
+                    },
+                    {
+                      "lightness": "50"
+                    },
+                    {
+                      "visibility": "simplified"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "labels.icon",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "saturation": "-100"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "visibility": "simplified"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.arterial",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "lightness": "30"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.local",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "lightness": "40"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "saturation": -100
+                    },
+                    {
+                      "visibility": "on"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.line",
+                  "elementType": "all",
+                  "stylers": [
+                    {
+                      "visibility": "on"
+                    },
+                    {
+                      "lightness": "44"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.station.rail",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    },
+                    {
+                      "hue": "#efff00"
+                    },
+                    {
+                      "saturation": "44"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "hue": "#ffff00"
+                    },
+                    {
+                      "lightness": -25
+                    },
+                    {
+                      "saturation": -97
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                      "saturation": "25"
+                    },
+                    {
+                      "lightness": "45"
+                    },
+                    {
+                      "color": "#82C6EE"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "labels",
+                  "stylers": [
+                    {
+                      "lightness": -25
+                    },
+                    {
+                      "saturation": -100
+                    }
+                  ]
+                }
+              ]
+            });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: currentLocation, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png', animation: google.maps.Animation.DROP});
+
+            infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+              location: currentLocation,
+              radius: 10000,
+              keyword: ['dermatologist']
+            }, callback);
+
+            function callback(results, status) {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                countDisplay.innerHTML = `Showing ${results.length} skin specialists within your vicinity`;
+                markers.push(results)
+                for (var i = 0; i < results.length; i++) {
+                  buildPlacesMenu(results[i]);
+                  createMarker(results[i]);
+                }
+              }
+            }
+
+            var element = document.createElement('ul');
+            element.classList.add('list-group');
+            function buildPlacesMenu(result) {
+              var item = document.createElement('li');
+              item.classList.add('list-group-item','list-group-item-action');
+              item.addEventListener("click", function() {
+               displayItem(result)
+              });
+              item.innerHTML = result.name;
+              element.appendChild(item)
+            }
+            sideMenu = document.getElementsByClassName('col-2')[0];
+            sideMenu.appendChild(element);
+          }
+          // Hides markers from map
+          function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+              markers[i].setMap(map);
+            }
+          }
+          // Display seletion with info window from sideMenu
+          function displayItem(result) {
+            var infoContent = `
+              <div id="content">\
+                <h6 class="mb-1">${result.name}</h6>
+                <p class="lead mb-0">${result.vicinity}</p>
+                <img src="${result.icon}" class="detail-image mt-1">
+              </div>
+            `
+            var infowindow = new google.maps.InfoWindow({
+              content: infoContent
+            });
+
+            var marker = new google.maps.Marker({
+                position: result.geometry.location,
+                map: map
+            });
+
+            infowindow.open(map, marker)
+          }
+          //
+          function createMarker(place) {
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location,
+              animation: google.maps.Animation.DROP
+            });
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name +"<br />" + details.website + "<br />" + details.formatted_phone_number);
+              infowindow.open(map, this);
+            });
+          }
+
+        }
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCil4yzqcfdxhY_n-uogSQXKbg0K8ctt8E&libraries=places" async defer></script>
+
+
+
+  </body>
+</html>
